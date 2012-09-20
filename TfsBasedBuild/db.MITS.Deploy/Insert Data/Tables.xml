@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<TablesList>
+  <xs:schema id="TablesList" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="TablesList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Tables">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="TableName" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                <xs:element name="Key" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                <xs:element name="Columns" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" type="xs:int" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//Tables" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Tables ID="1">
+    <TableName>dbo.Author</TableName>
+    <Key>"Author_ID"</Key>
+    <Columns>"Author_ID","Name"</Columns>
+  </Tables>
+</TablesList>

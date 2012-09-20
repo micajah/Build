@@ -1,0 +1,62 @@
+# Microsoft Developer Studio Project File - Database Project
+Begin DataProject = "db.MITS.Deploy"
+   MSDTVersion = "80"
+   DefDBRef = "user-station.mits_beta.dbo"
+   SccProjectName = "SAK"
+   SccLocalPath = "SAK"
+   SccAuxPath = "SAK"
+   SccProvider = "SAK"
+   Begin Folder = "Build Reports"
+      Begin Folder = "Beta"
+      End
+   End
+   Begin Folder = "Compiled Change Scripts"
+      Script = "DB_v00014_v00015.sql"
+      Script = "DB_v00013_v00014.sql"
+      Script = "DB_v00012_v00013.sql"
+      Script = "DB_v00011_v00012.sql"
+      Script = "DB_v00010_v00011.sql"
+      Script = "DB_v00009_v00010.sql"
+      Script = "DB_v00008_v00009.sql"
+      Script = "DB_v00007_v00008.sql"
+      Script = "DB_v00006_v00007.sql"
+      Script = "DB_v00005_v00006.sql"
+      Script = "DB_v00004_v00005.sql"
+      Script = "DB_v00003_v00004.sql"
+      Script = "DB_v00002_v00003.sql"
+      Script = "DB_v00001_v00002.sql"
+      Script = "DB_v00000_v00001.sql"
+      Node = "Updates.xml"
+   End
+   Begin Folder = "Create Scripts"
+      Script = "dbo.01Book.tab"
+      Script = "dbo.01Second.prc"
+      Script = "dbo.01Second.udf"
+      Script = "dbo.01Second.viw"
+      Script = "dbo.02Author.tab"
+      Script = "dbo.02First.prc"
+      Script = "dbo.02First.udf"
+      Script = "dbo.02First.viw"
+      Script = "dbo.MC_DBVersion.tab"
+   End
+   Script = "CreateTemporaryDatabase.sql"
+   Begin DBRefFolder = "Database References"
+      Begin DBRefNode = "user-station.mits_beta.dbo"
+         ConnectStr = "Data Source=USER-STATION;Initial Catalog=mits_beta;Integrated Security=True"
+         Provider = "{91510608-8809-4020-8897-FBA057E22D54}"
+         Colorizer = 5
+      End
+   End
+   Script = "DeleteTemporaryDatabase.sql"
+   Begin Folder = "Insert Data"
+      Script = "Author_Data.sql"
+      Node = "Tables.xml"
+   End
+   Begin Folder = "PostBuild Custom Scripts"
+      Script = "Post_one.sql"
+   End
+   Begin Folder = "PreBuild Custom Scripts"
+      Script = "Pre_one.sql"
+   End
+   Node = "SQLDeltaFile.sdp"
+End

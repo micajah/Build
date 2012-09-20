@@ -1,0 +1,26 @@
+use [et_temp]
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Author]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Author]
+GO
+
+CREATE TABLE [dbo].[Author] (
+	[Author_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Name] [nvarchar] (50) COLLATE Cyrillic_General_CI_AS NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Author] ADD 
+	CONSTRAINT [PK_Author] PRIMARY KEY  CLUSTERED 
+	(
+		[Author_ID]
+	)  ON [PRIMARY] 
+GO 
+
+CREATE TRIGGER AUTHOR_UPDATE on dbo.Author for update as
+if @@error <>0 
+begin
+	raiserror ('Trigger Author Error',16,1)
+end
+GO

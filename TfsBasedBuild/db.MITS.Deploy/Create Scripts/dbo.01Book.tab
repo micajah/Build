@@ -1,0 +1,31 @@
+use [et_temp]
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[Book]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[Book]
+GO
+
+CREATE TABLE [dbo].[Book] (
+	[Book_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Author_ID] [int] NULL ,
+	[Name] [char] (10) COLLATE Cyrillic_General_CI_AS NULL ,
+	[Date] [datetime] NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Book] ADD 
+	CONSTRAINT [PK_Book] PRIMARY KEY  CLUSTERED 
+	(
+		[Book_ID]
+	)  ON [PRIMARY] 
+GO
+
+ALTER TABLE dbo.Book WITH NOCHECK ADD CONSTRAINT
+	FK_Book_Author FOREIGN KEY
+	(
+	Author_ID
+	) REFERENCES dbo.Author
+	(
+	Author_ID
+	)
+GO

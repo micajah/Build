@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+<Version>1.1</Version>
+<Connections>
+<LItem>
+<Side>A</Side>
+<Connect></Connect>
+<Database>et_temp</Database>
+<ServerName>Largo</ServerName>
+<User></User>
+<Password></Password>
+<Offline></Offline>
+</LItem>
+<LItem>
+<Side>B</Side>
+<Connect></Connect>
+<Database>et_test_db</Database>
+<ServerName>Largo</ServerName>
+<User>et3349</User>
+<Password>Xd6g&amp;W</Password>
+<Offline></Offline>
+</LItem>
+</Connections>
+<Options>
+<CompareTables>True</CompareTables>
+<CompareViews>True</CompareViews>
+<CompareProcedures>True</CompareProcedures>
+<CompareTriggers>True</CompareTriggers>
+<CompareFunctions>True</CompareFunctions>
+<CompareDefaults>True</CompareDefaults>
+<CompareRules>True</CompareRules>
+<CompareUDTs>True</CompareUDTs>
+<CompareUsers>False</CompareUsers>
+<CompareRoles>False</CompareRoles>
+<CompareCatalogs>False</CompareCatalogs>
+<CompareDiagrams>False</CompareDiagrams>
+<ComparePermissions>False</ComparePermissions>
+<CompareProperties>False</CompareProperties>
+<PreserveColOrder>False</PreserveColOrder>
+<IgnoreDefaults>False</IgnoreDefaults>
+<IgnoreDefaultNames>True</IgnoreDefaultNames>
+<IgnoreBindings>False</IgnoreBindings>
+<IgnoreIndexesAndConstraints>False</IgnoreIndexesAndConstraints>
+<IgnoreStatistics>True</IgnoreStatistics>
+<IgnoreCheckConstraints>False</IgnoreCheckConstraints>
+<IgnoreForeignKeys>False</IgnoreForeignKeys>
+<IgnoreFillFactors>True</IgnoreFillFactors>
+<IgnoreIndexAndConstraintNames>False</IgnoreIndexAndConstraintNames>
+<IgnoreWithNoCheck>True</IgnoreWithNoCheck>
+<IgnoreCollationOrder>True</IgnoreCollationOrder>
+<IgnoreFileGroups>True</IgnoreFileGroups>
+<IgnoreFulltextIndexes>True</IgnoreFulltextIndexes>
+<IgnoreComments>True</IgnoreComments>
+<IgnoreCRLF>True</IgnoreCRLF>
+<IgnoreTabs>True</IgnoreTabs>
+<IgnoreSpaces>True</IgnoreSpaces>
+<IgnoreCase>True</IgnoreCase>
+<IgnoreSETStatements>False</IgnoreSETStatements>
+<DropAndRecreate>False</DropAndRecreate>
+<IgnoreDataCase>True</IgnoreDataCase>
+<IgnoreTimestamps>True</IgnoreTimestamps>
+<IgnoreBlobs>False</IgnoreBlobs>
+<IgnoreGUIDs>False</IgnoreGUIDs>
+<DisableTriggers>True</DisableTriggers>
+<DisableIndexesAndConstraints>True</DisableIndexesAndConstraints>
+<CompareOwners>False</CompareOwners>
+<UseOwnerMapping>False</UseOwnerMapping>
+<OwnerMapping></OwnerMapping>
+<IgnoreObjectNameCase>False</IgnoreObjectNameCase>
+<ConnectionTimeout>60</ConnectionTimeout>
+<CommandTimeout>600</CommandTimeout>
+<RowDeliminiter>{CR}{LF}</RowDeliminiter>
+<ColumnDeliminiter>Comma</ColumnDeliminiter>
+<TextQualifier>Double Quote {"}</TextQualifier>
+<SaveFormat>ANSI</SaveFormat>
+</Options>
+<Structure>
+<SchemaA></SchemaA>
+<SchemaB></SchemaB>
+<Filename>UpdateScriptFileNEEDBECHANGED</Filename>
+<FilenameAlt>RollbackScriptFileNEEDBECHANGED</FilenameAlt>
+<Execute>False</Execute>
+<ExecuteAlt>False</ExecuteAlt>
+<Direction>B</Direction>
+<SelectAll>True</SelectAll>
+<SelectModified>True</SelectModified>
+<SelectMissing>True</SelectMissing>
+<SelectAdded>True</SelectAdded>
+</Structure>
+<Data>
+  <StoreIdentical>True</StoreIdentical>
+  <StoreModified>True</StoreModified>
+  <StoreMissing>True</StoreMissing>
+  <StoreAdded>True</StoreAdded>
+  <FileName>DataUpdateFileHere</FileName>
+  <FilenameAlt>DataRollbackFileHere</FilenameAlt>
+  <Direction>B</Direction>
+  <SelectAll>False</SelectAll>
+  <DisableTriggers>True</DisableTriggers>
+  <DisableIndexesAndConstraints>True</DisableIndexesAndConstraints>
+  <Selected>    
+  </Selected>
+</Data>
+  <Reports>
+    <RItem>
+      <Name>Detailed Comparison Report</Name>
+      <OutputType>HTML</OutputType>
+      <Filename>_HereReportFile</Filename>
+      <Side>B</Side>
+      <TypeFilters>
+        <Tables>True</Tables>
+        <Views>True</Views>
+        <Procedures>True</Procedures>
+        <Triggers>True</Triggers>
+        <Functions>True</Functions>
+        <Defaults>False</Defaults>
+        <Rules>False</Rules>
+        <UDTs>False</UDTs>
+        <Users>False</Users>
+        <Roles>False</Roles>
+        <Catalogs>True</Catalogs>
+        <Properties>True</Properties>
+      </TypeFilters>
+      <StatusFilters>
+        <Identical>True</Identical>
+        <Missing>True</Missing>
+        <Additional>True</Additional>
+        <Different>True</Different>
+      </StatusFilters>
+      <StrucureSetup>
+        <SelectAll>False</SelectAll>
+      </StrucureSetup>
+      <DataSetup>
+        <SelectAll>True</SelectAll>
+        <SpiltData>True</SpiltData>
+      </DataSetup>
+    </RItem>
+  </Reports>
+</Project>

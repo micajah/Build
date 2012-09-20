@@ -1,0 +1,5 @@
+use [et_temp]
+GO
+
+CREATE VIEW dbo.View1 AS SELECT dbo.FirstUDF('255') AS S1
+GO

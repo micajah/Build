@@ -1,0 +1,290 @@
+DBDeploy task starting...
+dbProjectPath=C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy
+SqlToolsPath=C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe
+SqlDeltaPath=C:\Program Files\SQL Delta\SQLDelta.exe
+ServerName=Largo
+SQLDeltaProjectName=C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\SQLDeltaFile.sdp
+TFexe=c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe
+ConnectionString=-E
+WaitForExit=True
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\CreateTemporaryDatabase.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'et_temp') DROP DATABASE [et_temp]
+The CREATE DATABASE process is allocating 28.00 MB on disk
+'et_temp_schema'.
+The CREATE DATABASE process is allocating 285.00 MB on disk
+'et_temp_schema_Log'.
+
+CREATE DATABASE [et_temp]  ON (NAME = N'et_temp_schema', FILENAME = N'C:\Temp\et_temp_Data.mdf' , SIZE = 28, FILEGROWTH = 10%) LOG ON (NAME = N'et_temp_schema_Log', FILENAME = N'C:\Temp\et_temp_log.ldf' , SIZE = 285, FILEGROWTH = 10%) COLLATE SQL_Latin1_General_CP1_CI_AS
+exec sp_dboption N'et_temp', N'autoclose', N'false'
+exec sp_dboption N'et_temp', N'bulkcopy', N'false'
+exec sp_dboption N'et_temp', N'trunc. log', N'false'
+exec sp_dboption N'et_temp', N'torn page detection', N'false'
+exec sp_dboption N'et_temp', N'read only', N'false'
+exec sp_dboption N'et_temp', N'dbo use', N'false'
+exec sp_dboption N'et_temp', N'single', N'false'
+exec sp_dboption N'et_temp', N'autoshrink', N'false'
+exec sp_dboption N'et_temp', N'ANSI null default', N'false'
+exec sp_dboption N'et_temp', N'recursive triggers', N'false'
+exec sp_dboption N'et_temp', N'ANSI nulls', N'false'
+exec sp_dboption N'et_temp', N'concat null yields null', N'false'
+exec sp_dboption N'et_temp', N'cursor close on commit', N'false'
+exec sp_dboption N'et_temp', N'default to local cursor', N'false'
+exec sp_dboption N'et_temp', N'quoted identifier', N'false'
+exec sp_dboption N'et_temp', N'ANSI warnings', N'false'
+exec sp_dboption N'et_temp', N'auto create statistics', N'true'
+exec sp_dboption N'et_temp', N'auto update statistics', N'true'
+if( ( (@@microsoftversion / power(2, 24) = 8) and (@@microsoftversion & 0xffff >= 724) ) or ( (@@microsoftversion / power(2, 24) = 7) and (@@microsoftversion & 0xffff >= 1082) ) ) exec sp_dboption N'et_temp', N'db chaining', N'false'
+
+use [et_temp]
+
+if not exists (select * from dbo.sysusers where name = N'guest' and hasdbaccess = 1)
+	EXEC sp_grantdbaccess N'guest'
+
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunTablesScripts._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp] 
+
+
+CREATE TABLE [dbo].[Book] (
+	[Book_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Author_ID] [int] NULL ,
+	[Name] [char] (10) COLLATE Cyrillic_General_CI_AS NULL ,
+	[Date] [datetime] NULL 
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[Book] ADD 
+	CONSTRAINT [PK_Book] PRIMARY KEY  CLUSTERED 
+	(
+		[Book_ID]
+	)  ON [PRIMARY] 
+
+
+CREATE TABLE [dbo].[Author] (
+	[Author_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Name] [nvarchar] (50) COLLATE Cyrillic_General_CI_AS NULL 
+) ON [PRIMARY]
+
+
+ALTER TABLE [dbo].[Author] ADD 
+	CONSTRAINT [PK_Author] PRIMARY KEY  CLUSTERED 
+	(
+		[Author_ID]
+	)  ON [PRIMARY] 
+
+
+CREATE TABLE [dbo].[MC_DBVersion]
+	(
+	Version int NOT NULL,
+	GUID nvarchar(50) NOT NULL,
+	AddDate datetime NULL
+	)  ON [PRIMARY]
+
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunWOTablesScripts._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp] 
+use [et_temp]
+
+ALTER TABLE dbo.Book WITH NOCHECK ADD CONSTRAINT
+	FK_Book_Author FOREIGN KEY
+	(
+	Author_ID
+	) REFERENCES dbo.Author
+	(
+	Author_ID
+	)
+use [et_temp]
+use [et_temp]
+
+----------------------------------------------------
+DepFiles=6
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.01Second.udf" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+CREATE FUNCTION dbo.SecondUDF ()
+RETURNS int AS
+BEGIN 
+DECLARE @iValue int
+	SELECT @iValue = dbo.FirstUDF('225')	
+RETURN @iValue	
+END
+ 
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.02First.udf" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+CREATE FUNCTION dbo.FirstUDF(@sValue as varchar(8000))
+RETURNS int AS
+BEGIN 
+	DECLARE @iValue int
+
+	SELECT @iValue = case when @sValue like '%[^0-9]%' then NULL else convert(int, @sValue) end
+	
+	RETURN @iValue
+END
+ 
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.01Second.viw" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 1
+Exited code may be not 0. This cycle of dependent scripts creation. Next Error from OSQL log is only for depend script!
+Next error occured in dependent script. Script will be run again...
+-----< OSQL log copy >------------------------------
+use [et_temp]
+Msg 208, Level 16, State 1, Server LARGO, Procedure View2, Line 4
+Invalid object name 'dbo.View1'.
+
+CREATE VIEW dbo.View2
+AS 
+SELECT * FROM dbo.View1
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.02First.viw" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+CREATE VIEW dbo.View1 AS SELECT dbo.FirstUDF('255') AS S1
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.01Second.prc" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+Cannot add rows to sysdepends for the current stored procedure because
+it depends on the missing object 'dbo.FIRSTPRC'. The stored procedure
+will still be created.
+
+
+CREATE PROCEDURE dbo.SECONDPRC
+as
+EXEC dbo.FIRSTPRC
+if @@error <>0 
+begin
+	raiserror ('Procedure SECONDPRC Error',16,1)
+end
+  
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.02First.prc" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+
+CREATE PROCEDURE dbo.FIRSTPRC
+as
+if @@error <>0 
+begin
+	raiserror ('Procedure FIRSTPRC Error',16,1)
+end
+ 
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\dbo.01Second.viw" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+CREATE VIEW dbo.View2
+AS 
+SELECT * FROM dbo.View1
+ 
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunTriggerScript._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp] 
+
+
+CREATE TRIGGER AUTHOR_UPDATE on dbo.Author for update as
+if @@error <>0 
+begin
+	raiserror ('Trigger Author Error',16,1)
+end
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Insert Data\Author_Data.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp]
+
+INSERT INTO Author VALUES ('T. Schevchenko')
+(1 row affected)
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\PreBuild Custom Scripts\Pre_one.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+
+----------------------------------------------------
+Running SQL DELTA: C:\Program Files\SQL Delta\SQLDelta.exe C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLDeltaProjectFile_edited.sdp
+Running process C:\Program Files\SQL Delta\SQLDelta.exe with arguments: C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLDeltaProjectFile_edited.sdp
+Process exited with code: 0
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\PostBuild Custom Scripts\Post_one.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\DeleteTemporaryDatabase.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+Deleting database file 'C:\Temp\et_temp_log.ldf'.
+Deleting database file 'C:\Temp\et_temp_Data.mdf'.
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'et_temp') DROP DATABASE [et_temp]
+
+----------------------------------------------------
+Try to close connection to target database...
+Connection is closed.
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\DB_v00002_v00003.sql" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\DB_v00002_v00003.sql" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\DB_v00002_v00003.sql" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\DB_v00002_v00003.sql" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkout "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\db.MITS.Deploy.dbp" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkout "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\db.MITS.Deploy.dbp" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\db.MITS.Deploy.dbp" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\db.MITS.Deploy.dbp" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe label DBVersion=00003 "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\.." /recursive
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: label DBVersion=00003 "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\.." /recursive
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkout "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\Updates.xml" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkout "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\Updates.xml" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\Updates.xml" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Compiled Change Scripts\Updates.xml" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport.html" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport.html" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport.html" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport.html" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport_Data.html" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport_Data.html" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport_Data.html" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBCompareReport_Data.html" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBDeployLog.txt" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBDeployLog.txt" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBDeployLog.txt" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071130.1)\DBDeployLog.txt" /noprompt

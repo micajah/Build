@@ -1,0 +1,148 @@
+<?xml version="1.0" standalone="yes"?>
+<UpdatesList>
+  <xs:schema id="UpdatesList" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="UpdatesList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Steps">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ProductVersion" type="xs:string" minOccurs="0" msdata:Ordinal="1" />
+                <xs:element name="DBVersion" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                <xs:element name="UpdateFile" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                <xs:element name="Comment" type="xs:string" minOccurs="0" msdata:Ordinal="4" />
+                <xs:element name="Developer" type="xs:string" minOccurs="0" msdata:Ordinal="5" />
+                <xs:element name="Via" type="xs:string" minOccurs="0" msdata:Ordinal="6" />
+              </xs:sequence>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" type="xs:int" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//Steps" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Steps ID="1">
+    <ProductVersion>ScriptsDeploy_20071123.33</ProductVersion>
+    <DBVersion>1</DBVersion>
+    <UpdateFile>DB_v0_v1.sql</UpdateFile>
+    <Comment>Test XML _ X</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="2">
+    <ProductVersion>Deploy_20071129.33</ProductVersion>
+    <DBVersion>2</DBVersion>
+    <UpdateFile>DB_v00001_v00002.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="3">
+    <ProductVersion>Deploy_20071130.1</ProductVersion>
+    <DBVersion>3</DBVersion>
+    <UpdateFile>DB_v00002_v00003.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="4">
+    <ProductVersion>Deploy_20071201.3</ProductVersion>
+    <DBVersion>4</DBVersion>
+    <UpdateFile>DB_v00003_v00004.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="5">
+    <ProductVersion>Deploy_20071201.6</ProductVersion>
+    <DBVersion>5</DBVersion>
+    <UpdateFile>DB_v00004_v00005.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="6">
+    <ProductVersion>Deploy_20071201.7</ProductVersion>
+    <DBVersion>6</DBVersion>
+    <UpdateFile>DB_v00005_v00006.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="7">
+    <ProductVersion>Deploy_20071201.8</ProductVersion>
+    <DBVersion>7</DBVersion>
+    <UpdateFile>DB_v00006_v00007.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="8">
+    <ProductVersion>Deploy_20071201.9</ProductVersion>
+    <DBVersion>8</DBVersion>
+    <UpdateFile>DB_v00007_v00008.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="9">
+    <ProductVersion>Deploy_20071201.10</ProductVersion>
+    <DBVersion>9</DBVersion>
+    <UpdateFile>DB_v00008_v00009.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="10">
+    <ProductVersion>Deploy_20071201.11</ProductVersion>
+    <DBVersion>10</DBVersion>
+    <UpdateFile>DB_v00009_v00010.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="11">
+    <ProductVersion>Deploy_20071201.12</ProductVersion>
+    <DBVersion>11</DBVersion>
+    <UpdateFile>DB_v00010_v00011.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="12">
+    <ProductVersion>Deploy_20071201.13</ProductVersion>
+    <DBVersion>12</DBVersion>
+    <UpdateFile>DB_v00011_v00012.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="13">
+    <ProductVersion>Deploy_20071201.14</ProductVersion>
+    <DBVersion>13</DBVersion>
+    <UpdateFile>DB_v00012_v00013.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="14">
+    <ProductVersion>Deploy_20071201.15</ProductVersion>
+    <DBVersion>14</DBVersion>
+    <UpdateFile>DB_v00013_v00014.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+  <Steps ID="15">
+    <ProductVersion>Deploy_20071201.16</ProductVersion>
+    <DBVersion>15</DBVersion>
+    <UpdateFile>DB_v00014_v00015.sql</UpdateFile>
+    <Comment>One more update</Comment>
+    <Developer>Yuriy Mykytyuk</Developer>
+    <Via>TFS Checkin</Via>
+  </Steps>
+</UpdatesList>

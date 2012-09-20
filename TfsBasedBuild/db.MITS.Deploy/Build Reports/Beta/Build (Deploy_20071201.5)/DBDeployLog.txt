@@ -1,0 +1,119 @@
+DBDeploy task starting...
+dbProjectPath=C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy
+SqlToolsPath=C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe
+SqlDeltaPath=C:\Program Files\SQL Delta\SQLDelta.exe
+ServerName=Largo
+SQLDeltaProjectName=C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\SQLDeltaFile.sdp
+TFexe=c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe
+ConnectionString=-E
+WaitForExit=True
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\CreateTemporaryDatabase.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'et_temp') DROP DATABASE [et_temp]
+The CREATE DATABASE process is allocating 28.00 MB on disk
+'et_temp_schema'.
+The CREATE DATABASE process is allocating 285.00 MB on disk
+'et_temp_schema_Log'.
+
+CREATE DATABASE [et_temp]  ON (NAME = N'et_temp_schema', FILENAME = N'C:\Temp\et_temp_Data.mdf' , SIZE = 28, FILEGROWTH = 10%) LOG ON (NAME = N'et_temp_schema_Log', FILENAME = N'C:\Temp\et_temp_log.ldf' , SIZE = 285, FILEGROWTH = 10%) COLLATE SQL_Latin1_General_CP1_CI_AS
+exec sp_dboption N'et_temp', N'autoclose', N'false'
+exec sp_dboption N'et_temp', N'bulkcopy', N'false'
+exec sp_dboption N'et_temp', N'trunc. log', N'false'
+exec sp_dboption N'et_temp', N'torn page detection', N'false'
+exec sp_dboption N'et_temp', N'read only', N'false'
+exec sp_dboption N'et_temp', N'dbo use', N'false'
+exec sp_dboption N'et_temp', N'single', N'false'
+exec sp_dboption N'et_temp', N'autoshrink', N'false'
+exec sp_dboption N'et_temp', N'ANSI null default', N'false'
+exec sp_dboption N'et_temp', N'recursive triggers', N'false'
+exec sp_dboption N'et_temp', N'ANSI nulls', N'false'
+exec sp_dboption N'et_temp', N'concat null yields null', N'false'
+exec sp_dboption N'et_temp', N'cursor close on commit', N'false'
+exec sp_dboption N'et_temp', N'default to local cursor', N'false'
+exec sp_dboption N'et_temp', N'quoted identifier', N'false'
+exec sp_dboption N'et_temp', N'ANSI warnings', N'false'
+exec sp_dboption N'et_temp', N'auto create statistics', N'true'
+exec sp_dboption N'et_temp', N'auto update statistics', N'true'
+if( ( (@@microsoftversion / power(2, 24) = 8) and (@@microsoftversion & 0xffff >= 724) ) or ( (@@microsoftversion / power(2, 24) = 7) and (@@microsoftversion & 0xffff >= 1082) ) ) exec sp_dboption N'et_temp', N'db chaining', N'false'
+
+use [et_temp]
+
+if not exists (select * from dbo.sysusers where name = N'guest' and hasdbaccess = 1)
+	EXEC sp_grantdbaccess N'guest'
+
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunTablesScripts._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+use [et_temp] 
+
+
+CREATE TABLE [dbo].[Book] (
+	[Book_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Author_ID] [int] NULL ,
+	[Name] [char] (10) COLLATE Cyrillic_General_CI_AS NULL ,
+	[Date] [datetime] NULL 
+) ON [PRIMARY]
+
+
+
+
+CREATE TABLE [dbo].[Author] (
+	[Author_ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[Name] [nvarchar] (50) COLLATE Cyrillic_General_CI_AS NULL 
+) ON [PRIMARY]
+
+
+
+
+CREATE TABLE [dbo].[MC_DBVersion]
+	(
+	Version int NOT NULL,
+	GUID nvarchar(50) NOT NULL,
+	AddDate datetime NULL
+	)  ON [PRIMARY]
+
+
+
+----------------------------------------------------
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunWOTablesScripts._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 1
+-----< OSQL log copy >------------------------------
+use [et_temp] 
+use [et_temp]
+Msg 1776, Level 16, State 1, Server LARGO, Line 2
+There are no primary or candidate keys in the referenced table
+'dbo.Author' that match the referencing column list in the foreign key
+'FK_Book_Author'.
+Msg 1750, Level 16, State 1, Server LARGO, Line 2
+Could not create constraint. See previous errors.
+
+ALTER TABLE dbo.Book WITH NOCHECK ADD CONSTRAINT
+	FK_Book_Author FOREIGN KEY
+	(
+	Author_ID
+	) REFERENCES dbo.Author
+	(
+	Author_ID
+	)
+
+----------------------------------------------------
+Error: 
+Process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe ran with arguments -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Create Scripts\_RunWOTablesScripts._ql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt" exited with error code 1. CalledProcessErrorExitException is raised.
+Exception was raised during standard database construct process! Try to delete standard database...
+Running process C:\Program Files\Microsoft SQL Server\80\Tools\Binn\osql.exe with arguments: -E -S Largo -n -b -e -i "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\DeleteTemporaryDatabase.sql" -o "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\TempDir\SQLOutputLog.txt"
+Process exited with code: 0
+-----< OSQL log copy >------------------------------
+Deleting database file 'C:\Temp\et_temp_log.ldf'.
+Deleting database file 'C:\Temp\et_temp_Data.mdf'.
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'et_temp') DROP DATABASE [et_temp]
+
+----------------------------------------------------
+After raising exception during SQL scripts running standard database have been deleted!
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071201.5)\DBDeployLog.txt" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: add "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071201.5)\DBDeployLog.txt" /noprompt
+Process exited with code: 0
+Running TF.exe: c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071201.5)\DBDeployLog.txt" /noprompt
+Running process c:\Program Files\Microsoft Visual Studio 8\Common7\IDE\PrivateAssemblies\..\tf.exe with arguments: checkin "C:\BuildDirectory\Micajah.BuildEnvironment\Deploy\Sources\db.MITS.Deploy\Build Reports\Beta\Build (Deploy_20071201.5)\DBDeployLog.txt" /noprompt

@@ -1,0 +1,11 @@
+use [et_temp]
+GO
+
+CREATE FUNCTION dbo.SecondUDF ()
+RETURNS int AS
+BEGIN 
+DECLARE @iValue int
+	SELECT @iValue = dbo.FirstUDF('225')	
+RETURN @iValue	
+END
+ 

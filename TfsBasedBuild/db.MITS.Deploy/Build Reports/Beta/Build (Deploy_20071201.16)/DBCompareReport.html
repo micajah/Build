@@ -1,0 +1,241 @@
+<html>
+<head>
+<title>SQL Delta Structure Comparison Report</title>
+<script language="javascript">
+   function ShowComparison(oLink, oDisplay) {
+      if (oDisplay.style.display == 'none') {
+         oDisplay.style.display = '';
+         oLink.innerText = '-';
+      } else {
+         oDisplay.style.display = 'none';
+         oLink.innerText = '+';
+      }
+   }
+</script>
+<style>
+.headingtxt {font:16pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; background-color: #E8A623; color: #FFFFFF; line-height: 35px; BORDER-TOP: black 1px solid; BORDER-BOTTOM: black 1px solid}
+.sectiontxt {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.datalink {font:12pt,verdana, Arial, Helvetica, sans-serif; font-weight: bold; text-decoration:none; color: blue}
+.headertxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; font-weight: bold; color: #000000}
+.itemtxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: #E8A623}
+.bodytxt {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: #000000}
+.normlink {font: 10pt, verdana, Arial, Helvetica, sans-serif; text-decoration:none; color: blue}
+.added {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: red}
+.deleted {font: 10pt, verdana, Arial, Helvetica, sans-serif; color: blue}
+.smltxt {font: 8pt, Arial, Helvetica, sans-serif; color: #000000}
+.modified {font: 8pt, Arial, Helvetica, sans-serif; color: red}
+</style>
+</head>
+<body>
+<P align="center" class="headingtxt">SQL Delta Structure Comparison Report</P>
+<P align="left">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="sectiontxt"><td>Databases</td><td align="right"><a href="DBCompareReport_Data.html" class="datalink">View Data Comparsion Report</a></td><td width="3%"></td></tr>
+</table>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td width="1%"></td><td width="19%" nowrap class="itemtxt">Database A:</td><td width="80%" nowrap class="bodytxt">Largo.et_temp</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Database B:</td><td nowrap class="bodytxt">Largo.et_test_db</td></tr>
+<tr height="4"><td colspan="3"></td></tr>
+<tr><td></td><td nowrap class="itemtxt">Comparison Date:</td><td nowrap class="bodytxt">12/1/2007</td></tr>
+</table></P>
+<P align="left"><div class="sectiontxt">Comparison Summary</div>
+<table border="0" cellspacing="0" cellpadding="0" width="80%">
+<tr height="15"><td colspan="2"></td></tr>
+<tr><td width="1%"></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="30%" nowrap>Object Type</td><td width="17%" nowrap align="center">Identical</td><td width="18%" nowrap align="center">Missing From A</td><td width="18%" nowrap align="center">Missing From B</td><td width="17%" nowrap align="center">Modified</td></tr>
+<tr height="25"><td nowrap><a href="#tables" class="normlink">Tables</a></td><td nowrap align="right">1&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">1&nbsp;</td><td nowrap align="right">1&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#views" class="normlink">Views</a></td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">2&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#procedures" class="normlink">Procedures</a></td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">2&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#triggers" class="normlink">Triggers</a></td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">1&nbsp;</td></tr>
+<tr height="25"><td nowrap><a href="#functions" class="normlink">Functions</a></td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">2&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Defaults</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Rules</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>User Types</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Users</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Roles</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+<tr height="25"><td nowrap>Full-Text Catalogs</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td><td nowrap align="right">&nbsp;</td></tr>
+</table></td></tr></table></P>
+<P align="left"><div class="sectiontxt">Comparison Results</div><table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="tables" class="itemtxt">Tables</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V0" class="bodytxt" href="javascript:ShowComparison(V0, T0)">+</a></td><td nowrap>dbo.Author</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T0"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Table Structure</td><td width="4%" align="center">==</td><td width="48%">-- Table Structure</td></tr>
+<tr><td>CREATE TABLE [dbo].[Author] (</td><td align="center">==</td><td>CREATE TABLE [dbo].[Author] (</td></tr>
+<tr><td><font class="modified">   [Author_ID] [int] IDENTITY (1, 1) NOT NULL,</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">   [Author_ID] [int] NOT NULL,</font></td></tr>
+<tr><td>   [Name] [nvarchar] (50) NULL</td><td align="center">==</td><td>   [Name] [nvarchar] (50) NULL</td></tr>
+<tr><td>)</td><td align="center">==</td><td>)</td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td>-- Indexes & Constraints</td><td align="center">==</td><td>-- Indexes & Constraints</td></tr>
+<tr><td><font class="modified">ALTER TABLE [dbo].[Author] ADD CONSTRAINT [PK_Author] PRIMARY KEY CLUSTERED ([Author_ID])</font></td><td align="center"><font class="added"><</font><font class="deleted">></font></td><td><font class="modified">ALTER TABLE [dbo].[Author] ADD CONSTRAINT [PK_Author_1] PRIMARY KEY NONCLUSTERED ([Author_ID])</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">GO</font></td></tr>
+<tr><td><font class="modified"></font></td><td align="center"><font class="added"><<</font></td><td><font class="modified">ALTER TABLE [dbo].[Author] ADD CONSTRAINT [PK_Author] UNIQUE CLUSTERED ([Author_ID])</font></td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V1" class="bodytxt" href="javascript:ShowComparison(V1, T1)">+</a></td><td nowrap>dbo.Book</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T1"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- Table Structure</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE TABLE [dbo].[Book] (</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">   [Book_ID] [int] IDENTITY (1, 1) NOT NULL,</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">   [Author_ID] [int] NULL,</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">   [Name] [char] (10) NULL,</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">   [Date] [datetime] NULL</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">)</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified">-- Indexes & Constraints</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">ALTER TABLE [dbo].[Book] ADD CONSTRAINT [PK_Book] PRIMARY KEY CLUSTERED ([Book_ID])</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified">-- Foreign Keys</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">ALTER TABLE [dbo].[Book] ADD CONSTRAINT [FK_Book_Author] FOREIGN KEY ([Author_ID]) REFERENCES [dbo].[Author] ([Author_ID])</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+</table></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="views" class="itemtxt">Views</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V2" class="bodytxt" href="javascript:ShowComparison(V2, T2)">+</a></td><td nowrap>dbo.View1</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T2"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- View</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE VIEW dbo.View1 AS SELECT dbo.FirstUDF('255') AS S1</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V3" class="bodytxt" href="javascript:ShowComparison(V3, T3)">+</a></td><td nowrap>dbo.View2</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T3"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- View</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE VIEW dbo.View2</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">AS</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SELECT * FROM dbo.View1</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+</table></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="procedures" class="itemtxt">Procedures</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V4" class="bodytxt" href="javascript:ShowComparison(V4, T4)">+</a></td><td nowrap>dbo.FIRSTPRC</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T4"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- Procedure</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE PROCEDURE dbo.FIRSTPRC</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">as</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">if @@error <>0</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">begin</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	raiserror ('Procedure FIRSTPRC Error',16,1)</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">end</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V5" class="bodytxt" href="javascript:ShowComparison(V5, T5)">+</a></td><td nowrap>dbo.SECONDPRC</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T5"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- Procedure</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE PROCEDURE dbo.SECONDPRC</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">as</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">EXEC dbo.FIRSTPRC</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">if @@error <>0</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">begin</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	raiserror ('Procedure SECONDPRC Error',16,1)</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">end</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+</table></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="triggers" class="itemtxt">Triggers</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V6" class="bodytxt" href="javascript:ShowComparison(V6, T6)">+</a></td><td nowrap>dbo.AUTHOR_UPDATE</td><td nowrap align="center"><font class="added"><</font><font class="deleted">></font></td><td nowrap>Update on Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T6"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%">-- Trigger</td><td width="4%" align="center">==</td><td width="48%">-- Trigger</td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td>CREATE TRIGGER dbo.AUTHOR_UPDATE on dbo.Author for update as</td><td align="center">==</td><td>CREATE TRIGGER dbo.AUTHOR_UPDATE on dbo.Author for update as</td></tr>
+<tr><td>if @@error <>0</td><td align="center">==</td><td>if @@error <>0</td></tr>
+<tr><td>begin</td><td align="center">==</td><td>begin</td></tr>
+<tr><td>	raiserror ('Trigger Author Error',16,1)</td><td align="center">==</td><td>	raiserror ('Trigger Author Error',16,1)</td></tr>
+<tr><td>end</td><td align="center">==</td><td>end</td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td>GO</td><td align="center">==</td><td>GO</td></tr>
+</table></td></tr>
+</table></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr height="15"><td width="1%"></td><td><a name="functions" class="itemtxt">Functions</a></td></tr>
+<tr height="8"><td colspan="2"></td></tr>
+<tr><td></td><td width="99%">
+<table class="bodytxt" border="1" cellpadding="2" width="100%" bordercolordark="#FFFFFF">
+<tr height="25" class="headertxt"><td width="5%">&nbsp;</td><td width="30%" nowrap>Name</td><td width="10%" nowrap align="center">Status</td><td width="55%" nowrap align="center">Action</td></tr>
+<tr height="25"><td nowrap align="center"><a id="V7" class="bodytxt" href="javascript:ShowComparison(V7, T7)">+</a></td><td nowrap>dbo.FirstUDF</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T7"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- Function</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE FUNCTION dbo.FirstUDF(@sValue as varchar(8000))</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">RETURNS int AS</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">BEGIN</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	DECLARE @iValue int</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td></td><td align="center">==</td><td></td></tr>
+<tr><td><font class="modified">	SELECT @iValue = case when @sValue like '%[^0-9]%' then NULL else convert(int, @sValue) end</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	RETURN @iValue</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">END</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+<tr height="25"><td nowrap align="center"><a id="V8" class="bodytxt" href="javascript:ShowComparison(V8, T8)">+</a></td><td nowrap>dbo.SecondUDF</td><td nowrap align="center"><font class="deleted">>></font></td><td nowrap>Add to Largo.et_test_db</td></tr>
+<tr style="DISPLAY: none" id="T8"><td colspan="4">
+<table class="smltxt" width="100%" cellspacing="0">
+<tr><td width="48%"><font class="modified">-- Function</font></td><td width="4%" align="center"><font class="deleted">>></font></td><td width="48%"><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER OFF</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">CREATE FUNCTION dbo.SecondUDF ()</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">RETURNS int AS</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">BEGIN</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">DECLARE @iValue int</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">	SELECT @iValue = dbo.FirstUDF('225')	</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">RETURN @iValue	</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">END</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">SET QUOTED_IDENTIFIER ON</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+<tr><td><font class="modified">GO</font></td><td align="center"><font class="deleted">>></font></td><td><font class="modified"></font></td></tr>
+</table></td></tr>
+</table></td></tr>
+</table></P></body></html>

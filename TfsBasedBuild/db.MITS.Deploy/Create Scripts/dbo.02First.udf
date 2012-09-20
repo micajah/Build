@@ -1,0 +1,13 @@
+use [et_temp]
+GO
+
+CREATE FUNCTION dbo.FirstUDF(@sValue as varchar(8000))
+RETURNS int AS
+BEGIN 
+	DECLARE @iValue int
+
+	SELECT @iValue = case when @sValue like '%[^0-9]%' then NULL else convert(int, @sValue) end
+	
+	RETURN @iValue
+END
+ 

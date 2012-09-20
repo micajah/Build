@@ -1,0 +1,8 @@
+use [et_temp]
+GO
+
+CREATE VIEW dbo.View2
+AS 
+SELECT * FROM dbo.View1
+GO
+ 

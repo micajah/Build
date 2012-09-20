@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib.MITS.Task.DBDeploy", "lib.MITS.Task.DBDeploy\lib.MITS.Task.DBDeploy.csproj", "{3C84DDE3-1765-4A8D-B2AF-0009F1A40962}"
+EndProject
+Project("{4F174C21-8C12-11D0-8340-0000F80270F8}") = "db.MITS.Deploy", "db.MITS.Deploy\db.MITS.Deploy.dbp", "{E01DEF44-32AF-4891-9B3F-CB25304EE075}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Micajah.BuildLogViewer", "Micajah.BuildLogViewer", "{7D57A011-0B89-4F20-BC8F-0A2FAFE7D114}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/Micajah.BuildLogViewer"
+		Debug.AspNetCompiler.PhysicalPath = "Micajah.BuildLogViewer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Micajah.BuildLogViewer\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Micajah.BuildLogViewer"
+		Release.AspNetCompiler.PhysicalPath = "Micajah.BuildLogViewer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Micajah.BuildLogViewer\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1952"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "micajah.databasescripter", "micajah.databasescripter\micajah.databasescripter.csproj", "{F5BF20F4-80A8-4BCC-AC31-5AD29B1B570D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.kc.micajah.com:444/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = db.MITS.Deploy\\db.MITS.Deploy.dbp
+		SccProjectName1 = db.MITS.Deploy
+		SccLocalPath1 = db.MITS.Deploy
+		SccProjectUniqueName2 = lib.MITS.Task.DBDeploy\\lib.MITS.Task.DBDeploy.csproj
+		SccProjectName2 = lib.MITS.Task.DBDeploy
+		SccLocalPath2 = lib.MITS.Task.DBDeploy
+		SccWebProject3 = true
+		SccProjectUniqueName3 = Micajah.BuildLogViewer
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = Micajah.BuildLogViewer\\
+		SccProjectEnlistmentChoice3 = 2
+		SccProjectUniqueName4 = micajah.databasescripter\\micajah.databasescripter.csproj
+		SccProjectName4 = micajah.databasescripter
+		SccLocalPath4 = micajah.databasescripter
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C84DDE3-1765-4A8D-B2AF-0009F1A40962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C84DDE3-1765-4A8D-B2AF-0009F1A40962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C84DDE3-1765-4A8D-B2AF-0009F1A40962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C84DDE3-1765-4A8D-B2AF-0009F1A40962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D57A011-0B89-4F20-BC8F-0A2FAFE7D114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D57A011-0B89-4F20-BC8F-0A2FAFE7D114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D57A011-0B89-4F20-BC8F-0A2FAFE7D114}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D57A011-0B89-4F20-BC8F-0A2FAFE7D114}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F5BF20F4-80A8-4BCC-AC31-5AD29B1B570D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5BF20F4-80A8-4BCC-AC31-5AD29B1B570D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5BF20F4-80A8-4BCC-AC31-5AD29B1B570D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5BF20F4-80A8-4BCC-AC31-5AD29B1B570D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

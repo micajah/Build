@@ -1,0 +1,14 @@
+use [et_temp]
+GO
+
+if exists (select * from dbo.sysobjects where id = object_id(N'[dbo].[MC_DBVersion]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table [dbo].[MC_DBVersion]
+GO
+
+CREATE TABLE [dbo].[MC_DBVersion]
+	(
+	Version int NOT NULL,
+	GUID nvarchar(50) NOT NULL,
+	AddDate datetime NULL
+	)  ON [PRIMARY]
+GO 

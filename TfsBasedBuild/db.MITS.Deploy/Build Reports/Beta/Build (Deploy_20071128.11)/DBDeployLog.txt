@@ -1,0 +1,4 @@
+Deleting database file 'C:\Temp\et_temp_log.ldf'.
+Deleting database file 'C:\Temp\et_temp_Data.mdf'.
+IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'et_temp') DROP DATABASE [et_temp]
+
